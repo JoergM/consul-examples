@@ -1,0 +1,11 @@
+{
+  "data_dir": "/tmp/consul",
+  "server": true,
+  "bootstrap_expect":1,
+  "ports": {
+    "dns":53
+  },
+  "recursors":[
+    "8.8.8.8"
+  ]
+}
