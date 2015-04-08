@@ -1,0 +1,11 @@
+{
+  "data_dir": "/tmp/consul",
+  "server": true,
+  "bootstrap_expect":1,
+  "service": {
+      "name": "example",
+      "tags": ["special"],
+      "address":"127.0.0.1",
+      "port":3456
+  }
+}
