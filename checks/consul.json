@@ -1,0 +1,31 @@
+{
+  "data_dir": "/tmp/consul",
+  "server": true,
+  "bootstrap_expect":1,
+  "services": [
+    {
+      "name": "example_green",
+      "address":"127.0.0.1",
+      "port":3456,
+      "checks": [
+        {
+          "name":"Check that is always green",
+          "script": "./check_green.sh",
+          "interval": "15s"
+        }
+      ]
+     },
+    {
+      "name": "example_failed",
+      "address":"127.0.0.1",
+      "port":4567,
+      "checks": [
+        {
+          "name":"Check that always fails",
+          "script": "./check_failed.sh",
+          "interval": "15s"
+        }
+      ]
+     }
+  ]
+}
