@@ -17,6 +17,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
        ts1.vm.provider "virtualbox" do |vb|
            vb.memory     = 512
        end
+
+       ts1.vm.provision :puppet do |puppet|
+           puppet.manifests_path = "puppet/manifests/"
+      	   puppet.manifest_file = "ts1.pp"
+      	   puppet.module_path = "puppet/modules"
+       end
    end
 
    #
@@ -29,6 +35,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
        ts2.vm.provider "virtualbox" do |vb|
            vb.memory     = 512
+       end
+
+       ts2.vm.provision :puppet do |puppet|
+           puppet.manifests_path = "puppet/manifests/"
+      	   puppet.manifest_file = "ts2.pp"
+      	   puppet.module_path = "puppet/modules"
        end
    end
 
@@ -43,6 +55,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
        ha.vm.provider "virtualbox" do |vb|
            vb.memory    = 256
        end
+
+       ha.vm.provision :puppet do |puppet|
+           puppet.manifests_path = "puppet/manifests/"
+      	   puppet.manifest_file = "ha.pp"
+      	   puppet.module_path = "puppet/modules"
+       end
    end
 
    #
@@ -55,6 +73,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
        con.vm.provider "virtualbox" do |vb|
            vb.memory    = 1024
+       end
+
+       con.vm.provision :puppet do |puppet|
+           puppet.manifests_path = "puppet/manifests/"
+      	   puppet.manifest_file = "consul.pp"
+      	   puppet.module_path = "puppet/modules"
        end
    end       
 end
