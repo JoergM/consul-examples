@@ -1,0 +1,65 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+   #
+   # TimeService ONE
+   #					 
+   config.vm.define :ts1 do |ts1|
+       ts1.vm.box   	 = "hashicorp/precise32"  
+       ts1.vm.hostname 	 = 'ts1.localhost.localdomain'
+       ts1.vm.network 	 :private_network, ip: "192.168.60.60"
+
+       ts1.vm.provider "virtualbox" do |vb|
+           vb.memory     = 512
+       end
+   end
+
+   #
+   # TimeService two
+   #
+   config.vm.define :ts2 do |ts2|
+       ts2.vm.box        = "hashicorp/precise32"
+       ts2.vm.hostname   = 'ts2.localhost.localdomain'
+       ts2.vm.network    :private_network, ip: "192.168.60.70"
+
+       ts2.vm.provider "virtualbox" do |vb|
+           vb.memory     = 512
+       end
+   end
+
+   #
+   # HA Proxy
+   #
+   config.vm.define :ha do |ha| 
+       ha.vm.box        = "hashicorp/precise32"
+       ha.vm.hostname   = "ha.localhost.localdomain"
+       ha.vm.network    :private_network, ip: "192.168.60.50"
+   
+       ha.vm.provider "virtualbox" do |vb|
+           vb.memory    = 256
+       end
+   end
+
+   #
+   # Consul it self
+   # 
+   config.vm.define :con do |con|
+       con.vm.box       = "hashicorp/precise32"
+       con.vm.hostname  = "consul.localhost.localdomain"
+       con.vm.network   :private_network, ip: "192.168.60.80"
+
+       con.vm.provider "virtualbox" do |vb|
+           vb.memory    = 1024
+       end
+   end       
+end
+
+
+
+# end of file ;-)
+

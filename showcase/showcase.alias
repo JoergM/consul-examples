@@ -1,0 +1,2 @@
+
+alias scssh='ssh -F ssh-showcase.config'
