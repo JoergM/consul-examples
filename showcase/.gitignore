@@ -1,2 +1,4 @@
 .vagrant
 ssh-showcase.config
+exchange/*
+!exchange/readme.md
