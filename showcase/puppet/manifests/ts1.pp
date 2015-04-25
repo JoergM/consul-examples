@@ -9,4 +9,5 @@ include update
 
 
 Class[update] -> Class[java7]
-  -> Class[consul] -> Class[eop]
+              -> Class[consul]
+              -> Class[eop]

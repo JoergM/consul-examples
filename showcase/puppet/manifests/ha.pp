@@ -8,5 +8,7 @@ include haproxy
 include update
 
 Class[update] -> Class[haproxy]
-  -> Class[consul] -> Class[eop]
+              -> Class[consul]
+              -> Class[eop]
+
 
