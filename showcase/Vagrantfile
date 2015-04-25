@@ -74,7 +74,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    # 
    config.vm.define :con do |con|
        con.vm.box       = "hashicorp/precise32"
-       con.vm.hostname  = "consul.localhost.localdomain"
+       con.vm.hostname  = "con.localhost.localdomain"
        con.vm.network   :private_network, ip: "192.168.60.80"
 
        con.vm.provider "virtualbox" do |vb|
