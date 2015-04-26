@@ -11,6 +11,7 @@ The examples are:
 * [Simple DNS Setup](dns/)
 * [Using the http-api](http_api/)
 * [Service Checks](checks/)
+* [Locks, Watches and Events](events_watches_locks/)
 
 ### General usage 
 
