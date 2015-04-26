@@ -1,4 +1,4 @@
-class consul {
+class consul ($serverMode = 'false') {
 
   include 'consul::install'
   include 'consul::service'
