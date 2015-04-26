@@ -5,13 +5,14 @@ to the Google DNS Server 8.8.8.8
 
 ## Starting Consul
 
-There is a config file located in this Directory. So simply:
+There is a config file located in this Directory and a script that starts consul with the correct parameters.
+So simple type:
 
 ``` 
-sudo consul agent -config-file consul.json
+./start_consul.sh
 ```
 
-sudo is necessary to start DNS on port 53. 
+You will be asked for your password. This is because consul is started using sudo. This is necessary to start DNS on port 53. 
 
 ## Query DNS
 

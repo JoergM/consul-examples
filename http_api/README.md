@@ -54,6 +54,8 @@ You can check whether this was succesful by using the Agent API again:
 curl localhost:8500/v1/agent/services
 ```
 
+You can also see the service, when opening the UI at [http://localhost:8500/ui](http://localhost:8500/ui)
+
 ## Key-Value Store
 
 Store a new Value:
@@ -92,3 +94,5 @@ curl -s localhost:8500/v1/kv/example?raw
 ```
 
 In this example you would get _FooValue_. 
+
+You can also find the registred Key/Value Pair using the UI at [http://localhost:8500/ui/#/dc1/kv/](http://localhost:8500/ui/#/dc1/kv/)

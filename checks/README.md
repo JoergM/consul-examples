@@ -10,6 +10,12 @@ There is a script that starts consul with the configuration in consul.json:
 ./start_consul.sh
 ```
 
+If you started the DNS example before, the script can not delete the content in /tmp/consul because it was run as root Please delete it manually using: 
+
+```
+sudo rm -rf /tmp/consul
+``` 
+
 ## The Check-Scripts
 
 There are two services defined and each has one check-script associated. One script always returns good and one always failes. The failing script is shown below.
@@ -23,7 +29,13 @@ exit 2
 
 The conventions in consul are simple. a return value of 0 means no problems, 1 means warning and everything else is critical.
 
-## Validating Checks
+## Show checks in Consul-UI
+
+When you open [http://localhost:8500/ui](http://localhost:8500/ui) you will see both services. One of them will be failed, the other will be ok.
+
+If example_green is not ok, wait a few seconds and reload. The checks are configured to run every 15 seconds.
+
+## Validating Checks via http-api
 
 Using the Http-API to find the status of checks for a service:
 

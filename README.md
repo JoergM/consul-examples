@@ -12,9 +12,17 @@ The examples are:
 * [Using the http-api](http_api/)
 * [Service Checks](checks/)
 
+### General usage 
+
 You will need a local installation of consul.
 
 To use the examples you have to checkout this repository, change into the directory of the example and then follow the instructions the README file of the respective example.
+
+### Consul UI
+
+All examples are setup in a way, that consul UI is started too. Therefore the folder [ui](ui/) contains the official consul ui files. It is configured in all simple examples.
+
+Point your browser to [http://localhost:8500/ui](http://localhost:8500/ui)
 
 ## Complex showcase
 

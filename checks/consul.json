@@ -1,6 +1,7 @@
 {
   "data_dir": "/tmp/consul",
   "server": true,
+  "ui_dir": "../ui",
   "bootstrap_expect":1,
   "services": [
     {
