@@ -1,6 +1,6 @@
 class consul::install {
   exec { 'Installation of Consul':
-    command => '/bin/cp /exchange/consul /usr/local/sbin',
+    command => '/bin/cp -n /exchange/consul /usr/local/sbin',
   } ->
 
   exec { 'Make Consul executable':
