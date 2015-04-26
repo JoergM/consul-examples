@@ -8,9 +8,9 @@ These examples focus on specific functionality.
 
 The examples are:
 
-* [Simple DNS Setup](dns/README.md)
-* [Using the http-api](http_api/README.md)
-* [Service Checks](checks/REAMDME.md)
+* [Simple DNS Setup](dns/)
+* [Using the http-api](http_api/)
+* [Service Checks](checks/)
 
 You will need a local installation of consul.
 
@@ -18,4 +18,4 @@ To use the examples you have to checkout this repository, change into the direct
 
 ## Complex showcase
 
-There is also a [complex showcase](showcase/readme.md) which demonstrates the combined usage of Consul, [Consul-Template](https://github.com/hashicorp/consul-template) and [HAProxy](http://www.haproxy.org) to enable Service Discovery.
+There is also a [complex showcase](showcase/) which demonstrates the combined usage of Consul, [Consul-Template](https://github.com/hashicorp/consul-template) and [HAProxy](http://www.haproxy.org) to enable Service Discovery.
