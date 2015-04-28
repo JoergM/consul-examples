@@ -10,6 +10,6 @@ include consul
 include update
 include eop
 
-Class[update]
-  -> Class[consul] -> Class[eop]
+Class[update] -> Class[consul]
+              -> Class[eop]
 
