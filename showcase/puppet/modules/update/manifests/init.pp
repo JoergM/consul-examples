@@ -14,6 +14,10 @@ class update {
     ensure  => latest
   }
 
+  package { 'jq':
+    name    => 'jq',
+    ensure  => latest
+  }
 
   Exec <| |> -> Package <| |>
 }
