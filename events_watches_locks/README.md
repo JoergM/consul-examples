@@ -78,5 +78,33 @@ The consul watch command will keep watching until you interrupt it with a Ctrl-C
 
 ## Events
 
-TODO
+Watches can also be used to listen for custom events. To create such a custom event You can use the ["event" command](https://consul.io/docs/commands/event.html). 
 
+Use the following to listen for a custom event:
+
+```
+consul watch -type event -name exampleEvent cat
+```
+
+Now in another shell window enter:
+
+```
+consul event -name exampleEvent "Event Payload"
+```
+
+The watch will now output something like: 
+
+```
+[{
+	"ID":"0c0fddad-bfe7-2c4d-2ba8-f95aa4e72137",
+	"Name":"exampleEvent",
+	"Payload":"RXZlbnQgUGF5bG9hZA==",
+	"NodeFilter":"",
+	"ServiceFilter":"",
+	"TagFilter":"",
+	"Version":1,
+	"LTime":2
+}]
+```
+
+The Payload is Base64 encoded. Your program would have to decode it (which cat does not :) ) The Base64 encoding allows to send binary payload as well.
