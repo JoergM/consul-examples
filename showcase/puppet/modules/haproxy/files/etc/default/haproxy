@@ -1,0 +1,8 @@
+# Installed file via Puppet!
+
+# 1 => enabled
+# 0 => disabled
+
+ENABLED=1
+# Add extra flags here.
+#EXTRAOPTS="-de -m 16"

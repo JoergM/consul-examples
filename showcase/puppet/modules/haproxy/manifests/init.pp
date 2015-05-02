@@ -1,7 +1,5 @@
 class haproxy {
 
-  package { 'HA Proxy':
-    name      => 'haproxy',
-    ensure    => latest
-  }
+  include 'haproxy::install'
+  include 'haproxy::service'
 }
