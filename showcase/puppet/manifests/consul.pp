@@ -3,13 +3,16 @@
 #
 
 class { 'consul':
-  serverMode  => 'true'
+  serverMode  => 'true',
+  bindIp      => '192.168.60.80'
 }
 
 include consul
 include update
+include networking
 include eop
 
-Class[update] -> Class[consul]
+Class[update] -> Class[networking]
+              -> Class[consul]
               -> Class[eop]
 

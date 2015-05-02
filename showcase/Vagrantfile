@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
    #
    # TimeService ONE
-   #					 
+   #
    config.vm.define :ts1 do |ts1|
        ts1.vm.box   	 = "hashicorp/precise32"  
        ts1.vm.hostname 	 = 'ts1.localhost.localdomain'

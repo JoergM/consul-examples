@@ -1,4 +1,5 @@
-class consul ($serverMode = 'false') {
+class consul ($serverMode = 'false',
+              $bindIp) {
 
   include 'consul::install'
   include 'consul::service'
