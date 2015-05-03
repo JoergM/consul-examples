@@ -3,7 +3,7 @@
 #
 
 class { 'consul':
-  serverMode  => 'true',
+  serverMode  => true,
   bindIp      => '192.168.60.80'
 }
 
