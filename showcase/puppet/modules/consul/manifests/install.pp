@@ -7,6 +7,17 @@ class consul::install {
     command => '/bin/chmod 755 /usr/local/sbin/consul'
   } ->
 
+  file { '/usr/local/share/consul/':
+    ensure  => directory,
+  } ->
+
+  file { '/usr/local/share/consul/ui/':
+    ensure        => directory,
+    sourceselect  => all,
+    recurse       => true,
+    source        => 'puppet:///modules/consul/0.5.0'
+  } ->
+
 
   # We need a user account for Consul
 

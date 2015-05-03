@@ -70,6 +70,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    end
 
    #
+   # Consul Web UI
+   config.vm.define :ui do |ui|
+       ui.vm.box       = "hashicorp/precise32"
+       ui.vm.hostname  = "ui.localhost.localdomain"
+       ui.vm.network   :private_network, ip: "192.168.60.90"
+       ui.vm.network   :forwarded_port, guest: 8500, host: 8500, auto_correct: false
+
+       ui.vm.provider "virtualbox" do |vb|
+           vb.memory    = 1024
+       end
+
+       ui.vm.synced_folder "exchange", "/exchange"
+
+       ui.vm.provision :puppet do |puppet|
+           puppet.manifests_path = "puppet/manifests/"
+      	   puppet.manifest_file  = "ui.pp"
+      	   puppet.module_path    = "puppet/modules"
+       end
+   end
+
+   #
+   #
    # Consul it self
    # 
    config.vm.define :con do |con|
@@ -88,7 +110,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       	   puppet.manifest_file  = "consul.pp"
       	   puppet.module_path    = "puppet/modules"
        end
-   end       
+   end
 end
 
 
