@@ -3,7 +3,8 @@
 #
 
 class { 'consul':
-  bindIp      => '192.168.60.70'
+  bindIp      => '192.168.60.70',
+  nodeID      => 'ts2'
 }
 
 include consul

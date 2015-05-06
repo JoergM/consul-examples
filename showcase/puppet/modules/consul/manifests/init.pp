@@ -1,5 +1,6 @@
-class consul ($serverMode = 'false',
-              $servUI = 'false',
+class consul ($serverMode = false,
+              $servUI = false,
+              $nodeID = undef,
               $bindIp) {
 
   include 'consul::install'

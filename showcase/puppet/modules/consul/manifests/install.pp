@@ -56,4 +56,21 @@ class consul::install {
     content => template('consul/etc/init/consul.conf'),
   }
 
+  if $Consul::serverMode == false {
+    file { '/etc/consul.d/service-ts.json':
+      ensure  => 'present',
+      content => template('consul/etc/consul.d/service-ts.json'),
+    } ->
+
+    file { '/etc/consul.d/check-ts-http-alive.json':
+      ensure  => present,
+      content => template('consul/etc/consul.d/check-ts-http-alive.json')
+    } ->
+
+    notify { 'consul':
+    }
+
+  }
+
+
 }

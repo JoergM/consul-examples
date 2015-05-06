@@ -1,0 +1,9 @@
+{
+  "service": {
+    "id":       "<%= @nodeID %>",
+    "name":     "timeservice",
+    "tags":     [],
+    "port":     8080,
+    "checks":   []
+  }
+}

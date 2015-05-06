@@ -4,7 +4,8 @@ class consul::service {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
-    provider   => 'upstart'
+    provider   => 'upstart',
+    restart    => 'consul reload'
 
   }
 }

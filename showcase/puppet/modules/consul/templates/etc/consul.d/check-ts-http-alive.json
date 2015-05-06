@@ -1,0 +1,9 @@
+{
+  "check": {
+    "id":           "check-timeservice-http-alive",
+    "name":         "Alive-Check of REST interface",
+    "service_id":   "<%= @nodeID %>",
+    "http":         "http://localhost:8080/now/",
+    "interval":     "10s"
+  }
+}
