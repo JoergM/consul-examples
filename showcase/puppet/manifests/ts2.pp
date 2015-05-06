@@ -11,10 +11,12 @@ include eop
 include java7
 include networking
 include update
+include timeservice
 
 
 Class[update] -> Class[java7]
               -> Class[networking]
+              -> Class[timeservice]
               -> Class[consul]
               -> Class[eop]
 
