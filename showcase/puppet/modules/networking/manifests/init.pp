@@ -11,12 +11,12 @@ class networking {
 
   host { 'timeservice2.localhost.localdomain':
     ip           => '192.168.60.70',
-    host_aliases => ['timeservice1'],
+    host_aliases => ['timeservice2'],
   }
 
   host { 'timeservice3.localhost.localdomain':
     ip           => '192.168.60.100',
-    host_aliases => ['timeservice2'],
+    host_aliases => ['timeservice3'],
   }
 
   host { 'consul.localhost.localdomain':
