@@ -49,6 +49,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    end
 
    #
+   # TimeService three
+   #
+   config.vm.define :timeservice3 do |timeservice3|
+       timeservice3.vm.box        = "hashicorp/precise32"
+       timeservice3.vm.hostname   = 'timeservice3.localhost.localdomain'
+       timeservice3.vm.network    :private_network, ip: "192.168.60.100"
+
+       timeservice3.vm.provider "virtualbox" do |vb|
+           vb.memory     = 512
+       end
+
+       timeservice3.vm.synced_folder "exchange", "/exchange"
+
+       timeservice3.vm.provision :puppet do |puppet|
+           puppet.manifests_path = "puppet/manifests/"
+      	   puppet.manifest_file  = "ts3.pp"
+      	   puppet.module_path    = "puppet/modules"
+       end
+   end
+
+   #
    # HA Proxy
    #
    config.vm.define :haproxy do |haproxy|

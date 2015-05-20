@@ -56,7 +56,7 @@ class consul::install {
     content => template('consul/etc/init/consul.conf'),
   }
 
-  if $Consul::serverMode == false {
+  if $Consul::serverMode == false or $Consul::servUI == false {
     file { '/etc/consul.d/service-ts.json':
       ensure  => 'present',
       content => template('consul/etc/consul.d/service-ts.json'),
