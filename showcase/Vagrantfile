@@ -9,18 +9,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    #
    # TimeService ONE
    #
-   config.vm.define :ts1 do |ts1|
-       ts1.vm.box   	 = "hashicorp/precise32"  
-       ts1.vm.hostname 	 = 'ts1.localhost.localdomain'
-       ts1.vm.network 	 :private_network, ip: "192.168.60.60"
+   config.vm.define :timeservice1 do |timeservice1|
+       timeservice1.vm.box           = "hashicorp/precise32"
+       timeservice1.vm.hostname      = 'timeservice.localhost.localdomain'
+       timeservice1.vm.network 	     :private_network, ip: "192.168.60.60"
 
-       ts1.vm.provider "virtualbox" do |vb|
-           vb.memory     = 512
+       timeservice1.vm.provider "virtualbox" do |vb|
+           vb.memory = 512
        end
 
-       ts1.vm.synced_folder "exchange", "/exchange"
+       timeservice1.vm.synced_folder "exchange", "/exchange"
 
-       ts1.vm.provision :puppet do |puppet|
+       timeservice1.vm.provision :puppet do |puppet|
            puppet.manifests_path = "puppet/manifests/"
       	   puppet.manifest_file  = "ts1.pp"
       	   puppet.module_path    = "puppet/modules"
@@ -30,18 +30,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    #
    # TimeService two
    #
-   config.vm.define :ts2 do |ts2|
-       ts2.vm.box        = "hashicorp/precise32"
-       ts2.vm.hostname   = 'ts2.localhost.localdomain'
-       ts2.vm.network    :private_network, ip: "192.168.60.70"
+   config.vm.define :timeservice2 do |timeservice2|
+       timeservice2.vm.box        = "hashicorp/precise32"
+       timeservice2.vm.hostname   = 'timeservice2.localhost.localdomain'
+       timeservice2.vm.network    :private_network, ip: "192.168.60.70"
 
-       ts2.vm.provider "virtualbox" do |vb|
+       timeservice2.vm.provider "virtualbox" do |vb|
            vb.memory     = 512
        end
 
-       ts2.vm.synced_folder "exchange", "/exchange"
+       timeservice2.vm.synced_folder "exchange", "/exchange"
 
-       ts2.vm.provision :puppet do |puppet|
+       timeservice2.vm.provision :puppet do |puppet|
            puppet.manifests_path = "puppet/manifests/"
       	   puppet.manifest_file  = "ts2.pp"
       	   puppet.module_path    = "puppet/modules"
@@ -51,19 +51,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    #
    # HA Proxy
    #
-   config.vm.define :ha do |ha| 
-       ha.vm.box        = "hashicorp/precise32"
-       ha.vm.hostname   = "ha.localhost.localdomain"
-       ha.vm.network    :private_network, ip: "192.168.60.50"
-       ha.vm.network    :forwarded_port, guest: 80, host: 10080, auto_correct: false
+   config.vm.define :haproxy do |haproxy|
+       haproxy.vm.box        = "hashicorp/precise32"
+       haproxy.vm.hostname   = "haproxy.localhost.localdomain"
+       haproxy.vm.network    :private_network, ip: "192.168.60.50"
+       haproxy.vm.network    :forwarded_port, guest: 80, host: 10080, auto_correct: false
 
-       ha.vm.provider "virtualbox" do |vb|
+       haproxy.vm.provider "virtualbox" do |vb|
            vb.memory    = 256
        end
 
-       ha.vm.synced_folder "exchange", "/exchange"
+       haproxy.vm.synced_folder "exchange", "/exchange"
 
-       ha.vm.provision :puppet do |puppet|
+       haproxy.vm.provision :puppet do |puppet|
            puppet.manifests_path = "puppet/manifests/"
       	   puppet.manifest_file  = "ha.pp"
       	   puppet.module_path    = "puppet/modules"
@@ -72,19 +72,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
    #
    # Consul Web UI
-   config.vm.define :ui do |ui|
-       ui.vm.box       = "hashicorp/precise32"
-       ui.vm.hostname  = "ui.localhost.localdomain"
-       ui.vm.network   :private_network, ip: "192.168.60.90"
-       ui.vm.network   :forwarded_port, guest: 8500, host: 8500, auto_correct: false
+   config.vm.define :webui do |webui|
+       webui.vm.box       = "hashicorp/precise32"
+       webui.vm.hostname  = "ui.localhost.localdomain"
+       webui.vm.network   :private_network, ip: "192.168.60.90"
+       webui.vm.network   :forwarded_port, guest: 8500, host: 8500, auto_correct: false
 
-       ui.vm.provider "virtualbox" do |vb|
+       webui.vm.provider "virtualbox" do |vb|
            vb.memory    = 1024
        end
 
-       ui.vm.synced_folder "exchange", "/exchange"
+       webui.vm.synced_folder "exchange", "/exchange"
 
-       ui.vm.provision :puppet do |puppet|
+       webui.vm.provision :puppet do |puppet|
            puppet.manifests_path = "puppet/manifests/"
       	   puppet.manifest_file  = "ui.pp"
       	   puppet.module_path    = "puppet/modules"
@@ -95,18 +95,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    #
    # Consul it self
    # 
-   config.vm.define :con do |con|
-       con.vm.box       = "hashicorp/precise32"
-       con.vm.hostname  = "con.localhost.localdomain"
-       con.vm.network   :private_network, ip: "192.168.60.80"
+   config.vm.define :consul do |consul|
+       consul.vm.box       = "hashicorp/precise32"
+       consul.vm.hostname  = "con.localhost.localdomain"
+       consul.vm.network   :private_network, ip: "192.168.60.80"
 
-       con.vm.provider "virtualbox" do |vb|
+       consul.vm.provider "virtualbox" do |vb|
            vb.memory    = 1024
        end
 
-       con.vm.synced_folder "exchange", "/exchange"
+       consul.vm.synced_folder "exchange", "/exchange"
 
-       con.vm.provision :puppet do |puppet|
+       consul.vm.provision :puppet do |puppet|
            puppet.manifests_path = "puppet/manifests/"
       	   puppet.manifest_file  = "consul.pp"
       	   puppet.module_path    = "puppet/modules"

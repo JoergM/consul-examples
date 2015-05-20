@@ -1,22 +1,22 @@
 class networking {
-  host { 'ha.localhost.localdomain':
+  host { 'haproxy.localhost.localdomain':
     ip           => '192.168.60.50',
-    host_aliases => 'ha',
+    host_aliases => ['haproxy'],
   }
 
-  host { 'ts1.localhost.localdomain':
+  host { 'timeservice1.localhost.localdomain':
     ip           => '192.168.60.60',
-    host_aliases => 'ts1',
+    host_aliases => ['timeservice1'],
   }
 
-  host { 'ts2.localhost.localdomain':
+  host { 'timeservice2.localhost.localdomain':
     ip           => '192.168.60.70',
-    host_aliases => 'ts2',
+    host_aliases => ['timeservice2'],
   }
 
-  host { 'con.localhost.localdomain':
+  host { 'consul.localhost.localdomain':
     ip           => '192.168.60.80',
-    host_aliases => 'con',
+    host_aliases => ['consul'],
   }
 
 
