@@ -1,0 +1,13 @@
+{{/*
+   Run this example with this command
+
+   consul-template -template "/templates/all-services-simple.ctmpl:/tmp/services.txt" -dry
+
+   */}}
+#
+# All services registered in Consul
+#
+{{range services}} {{/* Iterate over all services */}}
+Service: {{.Name}}{{end}}
+
+.eof ;-)

@@ -1,0 +1,26 @@
+{{/*
+   Run this example with this command
+
+   consul-template -template "/templates/all-services-by-state.ctmpl:/tmp/bystate.txt" -dry
+
+   */}}
+#
+# All service instances passing all checks
+#
+{{range service "timeservice" "passing"}}
+Service: {{.Name}} Host: {{.Node}}:{{.Port}} {{.Status}}{{end}}
+
+#
+# All service instances with warnings
+#
+{{range service "timeservice" "warning"}}
+Service: {{.Name}} Host: {{.Node}}:{{.Port}} {{.Status}}{{end}}
+
+#
+# All service instances in a critical state
+#
+{{range service "timeservice" "critical"}}
+Service: {{.Name}} Host: {{.Node}}:{{.Port}} {{.Status}}{{end}}
+
+
+.eof ;-)
