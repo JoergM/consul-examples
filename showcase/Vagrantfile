@@ -83,6 +83,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
        end
 
        haproxy.vm.synced_folder "exchange", "/exchange"
+       haproxy.vm.synced_folder "templates", "/templates"
 
        haproxy.vm.provision :puppet do |puppet|
            puppet.manifests_path = "puppet/manifests/"
