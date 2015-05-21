@@ -4,6 +4,9 @@
 
 class { 'consul':
   bindIp      => '192.168.60.60',
+}
+
+class { 'timeservice':
   nodeID      => 'ts1'
 }
 

@@ -4,8 +4,12 @@
 
 class { 'consul':
   bindIp      => '192.168.60.100',
+}
+
+class { 'timeservice':
   nodeID      => 'ts3'
 }
+
 
 include consul
 include eop
