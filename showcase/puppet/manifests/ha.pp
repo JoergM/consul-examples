@@ -10,7 +10,7 @@ class { 'consul-template':
   templates   => {
     template1 => {
       source      => '/etc/consul-template.d/haproxy.cfg.ctmpl',
-      destination => '/etc/haproxy.d/haproxy.cfg',
+      destination => '/etc/haproxy/haproxy.cfg',
       command     => 'sudo service haproxy restart'
     }
   },
