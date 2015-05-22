@@ -23,7 +23,7 @@ class consul::install {
 
   user { 'consul': # creates also a group for Consul
     ensure  => present,
-    groups  => ['root', 'sudo']
+    groups  => ['root', 'sudo', 'admin']
   } ->
 
   file { ['/var/consul', '/var/run/consul/']:
