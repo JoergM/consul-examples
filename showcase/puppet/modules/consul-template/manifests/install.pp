@@ -1,6 +1,6 @@
 class consul-template::install {
   exec { 'Installation of Consul Template':
-    command => '/bin/cp -n /exchange/consul-template_0.8.0_linux_386/consul-template /usr/local/sbin',
+    command => '/bin/cp -n /exchange/consul-template_0.9.0_linux_386/consul-template /usr/local/sbin',
   } ->
 
   exec { 'Make Consul Template executable':

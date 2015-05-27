@@ -15,7 +15,7 @@ class consul::install {
     ensure        => directory,
     sourceselect  => all,
     recurse       => true,
-    source        => 'puppet:///modules/consul/0.5.0'
+    source        => 'puppet:///modules/consul/0.5.2'
   } ->
 
 
