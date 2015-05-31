@@ -96,7 +96,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    # Consul Web UI
    config.vm.define :webui do |webui|
        webui.vm.box       = "hashicorp/precise32"
-       webui.vm.hostname  = "ui.localhost.localdomain"
+       webui.vm.hostname  = "webui.localhost.localdomain"
        webui.vm.network   :private_network, ip: "192.168.60.90"
        webui.vm.network   :forwarded_port, guest: 8500, host: 8500, auto_correct: false
 
@@ -119,7 +119,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    # 
    config.vm.define :consul do |consul|
        consul.vm.box       = "hashicorp/precise32"
-       consul.vm.hostname  = "con.localhost.localdomain"
+       consul.vm.hostname  = "consul.localhost.localdomain"
        consul.vm.network   :private_network, ip: "192.168.60.80"
 
        consul.vm.provider "virtualbox" do |vb|
