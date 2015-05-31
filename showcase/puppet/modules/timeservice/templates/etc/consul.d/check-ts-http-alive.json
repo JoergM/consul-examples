@@ -4,6 +4,6 @@
     "name":         "Alive-Check of REST interface",
     "service_id":   "<%= @nodeID %>",
     "http":         "http://localhost:8080/now/",
-    "interval":     "10s"
+    "interval":     "1s"
   }
 }
