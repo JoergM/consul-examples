@@ -28,3 +28,9 @@ Point your browser to [http://localhost:8500/ui](http://localhost:8500/ui)
 ## Complex showcase
 
 There is also a [complex showcase](showcase/) which demonstrates the combined usage of Consul, [Consul-Template](https://github.com/hashicorp/consul-template) and [HAProxy](http://www.haproxy.org) to enable Service Discovery.
+
+## Presentation slides
+
+The slides of the presentation in german can also be found in this repository:
+
+* [German slides](Slides_german.pdf)
