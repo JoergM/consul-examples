@@ -1,0 +1,13 @@
+{{/*
+   Run this example with this command
+
+   consul-template -template "/templates/all-datacenters.ctmpl:/tmp/datacenters.txt" -dry
+
+   */}}
+#
+# All datacenters known in Consul
+#
+{{range datacenters}} {{/* Iterate over all datacenters */}}
+Datacenter: {{.}}{{end}}
+
+.eof ;-)

@@ -15,7 +15,7 @@ class consul::install {
     ensure        => directory,
     sourceselect  => all,
     recurse       => true,
-    source        => 'puppet:///modules/consul/0.5.0'
+    source        => 'puppet:///modules/consul/0.5.2'
   } ->
 
 
@@ -23,7 +23,7 @@ class consul::install {
 
   user { 'consul': # creates also a group for Consul
     ensure  => present,
-    groups  => ['root']
+    groups  => ['root', 'sudo', 'admin']
   } ->
 
   file { ['/var/consul', '/var/run/consul/']:
@@ -54,22 +54,6 @@ class consul::install {
     group   => 'root',
     mode    => '644',
     content => template('consul/etc/init/consul.conf'),
-  }
-
-  if $Consul::serverMode == false {
-    file { '/etc/consul.d/service-ts.json':
-      ensure  => 'present',
-      content => template('consul/etc/consul.d/service-ts.json'),
-    } ->
-
-    file { '/etc/consul.d/check-ts-http-alive.json':
-      ensure  => present,
-      content => template('consul/etc/consul.d/check-ts-http-alive.json')
-    } ->
-
-    notify { 'consul':
-    }
-
   }
 
 

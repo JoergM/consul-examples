@@ -1,4 +1,4 @@
-class timeservice {
+class timeservice($nodeID = undef) {
 
   include 'timeservice::install'
   include 'timeservice::service'

@@ -1,4 +1,4 @@
-class consul-template {
+class consul-template($templates) {
 
   include 'consul-template::install'
   include 'consul-template::service'

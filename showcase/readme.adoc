@@ -1,0 +1,26 @@
+= Consul Showcase
+
+This directory contains the Consul showcase used
+for our talk on Consul as infrastructure component
+for service discovery.
+
+== Showcase description
+
+The cluster in this showcase provides a time service which
+allows you to retrive the current time stamp as JSON
+document via REST. The cluster contains three instances of this
+timeservice behind a single HAProxy instance, used to
+balance the requests to the timeservice.
+
+== Requirements to run the showcase
+
+To run the custer you need the following tools on
+your local machine:
+
+* https://www.vagrantup.com/[Vagrant 1.6.3]
+* https://www.virtualbox.org/[Oracle VirtualBox 4.3]
+* http://www.gnu.org/software/bash/[Bash 3 or 4]
+* http://www.gnu.org/software/wget/[Wget]
+
+NOTE: This showcase was develop on a MacBook and is
+not tested on an different plattform.

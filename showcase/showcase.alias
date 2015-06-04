@@ -1,2 +1,18 @@
 
-alias scssh='ssh -F ssh-showcase.config'
+#
+# During the demo we will use a very minimalistic
+# shell prompt
+#
+
+export PS1="\W> "
+
+#
+# Aliases we will rely on
+#
+alias ll='ls -lh'
+
+#
+# Demo specific aliases
+#
+alias sc-ssh='ssh -F ssh-showcase.config'
+

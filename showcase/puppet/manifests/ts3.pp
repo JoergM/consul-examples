@@ -3,11 +3,11 @@
 #
 
 class { 'consul':
-  bindIp      => '192.168.60.70',
+  bindIp      => '192.168.60.100',
 }
 
 class { 'timeservice':
-  nodeID      => 'ts2'
+  nodeID      => 'ts3'
 }
 
 
