@@ -4,6 +4,7 @@ class timeservice::service {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
-    provider   => 'upstart'
+    provider   => 'upstart',
+    require    => [Package['OpenJDK 7 JRE']],
   }
 }
