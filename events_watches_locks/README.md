@@ -108,3 +108,4 @@ The watch will now output something like:
 ```
 
 The content of the field 'Payload' is Base64 encoded. Your program would have to decode it. The Base64 encoding allows to send binary payload as well.
+
